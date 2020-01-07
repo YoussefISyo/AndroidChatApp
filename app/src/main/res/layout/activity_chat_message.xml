@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.user.androidchatapp.ChatMessageActivity">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/chat_message_toolbar"
+        android:minHeight="?attr/actionBarSize"
+        android:background="?attr/colorPrimary"
+        app:titleTextColor="@android:color/white"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:id="@+id/dialog_avatar"
+            android:src="@drawable/ic_group"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/username"
+            android:textSize="18sp"
+            android:layout_marginLeft="25dp"
+            android:textColor="#fff"
+            android:textStyle="bold"
+            android:layout_marginStart="25dp"/>
+
+
+
+
+    </androidx.appcompat.widget.Toolbar>
+
+
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="?attr/actionBarSize"
+        android:id="@+id/dialog_info"
+        android:layout_below="@id/chat_message_toolbar"
+        android:orientation="horizontal"
+        android:layout_centerHorizontal="true">
+
+        <ImageView
+            android:layout_width="15dp"
+            android:layout_height="15dp"
+            android:id="@+id/img_online_count"
+            android:layout_gravity="center_vertical" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/txt_online_count"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="10dp" />
+
+    </LinearLayout>
+
+    <ImageButton
+        android:id="@+id/emoji_btn"
+        android:background="@null"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:src="@drawable/ic_emojey"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:padding="4dp"/>
+
+    <ImageButton
+        android:id="@+id/send_btn"
+        android:background="@null"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:src="@android:drawable/ic_menu_send"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:padding="4dp"/>
+
+    <EditText
+        android:id="@+id/edt_content"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_toLeftOf="@id/send_btn"
+        android:layout_toRightOf="@id/emoji_btn"
+        android:hint="Enter your message ..."
+        android:layout_alignParentBottom="true"/>
+
+    <ListView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/list_of_messages"
+        android:layout_above="@id/edt_content"
+        android:layout_below="@id/dialog_info"
+        android:divider="@android:color/transparent"
+        android:dividerHeight="16dp"
+        android:layout_marginBottom="16dp"></ListView>
+
+    <com.bhargavms.dotloader.DotLoader
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="invisible"
+        android:id="@+id/dot_loader"
+        android:layout_alignBottom="@id/list_of_messages"
+        android:layout_centerHorizontal="true"
+        app:color_array="@array/dot_colors"
+        app:dot_radius="4dp"
+        app:number_of_dots="3"/>
+
+</RelativeLayout>
